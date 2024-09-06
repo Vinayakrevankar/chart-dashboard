@@ -1,0 +1,28 @@
+# docker-compose.yml
+
+services:
+  django:
+    build:
+      context: ./APIService/  # Path to your Django Dockerfile
+    container_name: django-app
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./APIService:/app  # Mount your Django code into the container
+    ports:
+      - "8000:8000"     # Expose Django on port 8000
+    env_file:
+      - ./APIService/.env  # Specify your Django environment variables (optional)
+    depends_on:
+      - nextjs
+
+  nextjs:
+    build:
+      context: ./chart-dashboard-ui  # Path to your Next.js Dockerfile
+    container_name: nextjs-app
+    volumes:
+      - ./chart-dashboard-ui:/app  # Mount your Next.js code into the container
+      - /app/node_modules      # Ensure node_modules is maintained inside the container
+    ports:
+      - "3000:3000"      # Expose Next.js on port 3000
+    env_file:
+      - ./chart-dashboard-ui/.env  # Specify your Next.js environment variables (optional)
