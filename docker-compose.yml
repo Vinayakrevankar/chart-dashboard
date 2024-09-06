@@ -19,9 +19,6 @@ services:
     build:
       context: ./chart-dashboard-ui  # Path to your Next.js Dockerfile
     container_name: nextjs-app
-    volumes:
-      - ./chart-dashboard-ui:/app  # Mount your Next.js code into the container
-      - /app/node_modules      # Ensure node_modules is maintained inside the container
     ports:
       - "3000:3000"      # Expose Next.js on port 3000
     env_file:
