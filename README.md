@@ -116,4 +116,8 @@ docker-compose down
    - To improve user experience, I added a **refresh button** that allows users to retry the failed API request and refresh the chart data dynamically without needing to reload the entire page.
 
 
+## Screenshot
 
+Below is a screenshot of the chart dashboard displaying various chart types:
+
+![Chart Dashboard Screenshot](./chart-dashboard-ui/src/assets/dashboard_screenshot.png)
