@@ -11,7 +11,7 @@ services:
     ports:
       - "8000:8000"     # Expose Django on port 8000
     env_file:
-      - ./APIService/.env  # Specify your Django environment variables (optional)
+      - ./APIService/.env  
     depends_on:
       - nextjs
 
@@ -22,4 +22,4 @@ services:
     ports:
       - "3000:3000"      # Expose Next.js on port 3000
     env_file:
-      - ./chart-dashboard-ui/.env  # Specify your Next.js environment variables (optional)
+      - ./chart-dashboard-ui/.env 
